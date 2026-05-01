@@ -35,20 +35,15 @@ async function uno(req,res,next){
        next(err);
     }
 }
-async function agregar(req,res, next){
-    try{
-        const items= await controlador.agregar(req.body);
-        if(req.body.id==0){
-            mensaje = "Item guardado con éxito";
-        }else{
-            mensaje = "Item actualizado con éxito";
-        }
-        respuesta.success(req,res, mensaje, 201);
-
-    } catch(err){
+async function agregar(req,res,next){
+    try {
+        const resultado = await controlador.agregar(req.body);
+        respuesta.success(req,res, { mensaje: "Item guardado con éxito", id: resultado.insertId }, 201);
+    } catch(err) {
         next(err);
     }
 }
+
 async function actualizar(req,res,next){
     try{
         const items = await controlador.actualizar(req.params.id, req.body);

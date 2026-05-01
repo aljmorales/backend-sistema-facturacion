@@ -25,10 +25,11 @@ function escapeId(ident) {
 
 // 🔹 GET TODOS
 async function todos(tabla) {
-  const sql = `SELECT * FROM ${escapeId(tabla)}`;
+  const sql = `SELECT * FROM ${escapeId(tabla)} ORDER BY id ASC`;
   const res = await pool.query(sql);
   return res.rows;
 }
+
 
 // 🔹 GET UNO
 async function uno(tabla, id) {
