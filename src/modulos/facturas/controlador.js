@@ -21,7 +21,7 @@ module.exports = function(dbInyectada) {
         // Insertar cabecera
         const resultado = await db.agregar(TABLA, factura);
         // Para PostgreSQL, el objeto resultado contiene la propiedad 'id' (RETURNING id)
-        const facturaId = resultado.id;
+        const facturaId = resultado.insertId;
 
         // Insertar detalles
         for (let i = 0; i < detalles.length; i++) {
