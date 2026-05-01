@@ -9,6 +9,8 @@ const ingresos = require("./modulos/ingresos/rutas.js");
 const facturas = require("./modulos/facturas/rutas.js");
 const detalle = require("./modulos/detalle_factura/rutas.js");
 
+require('dotenv').config();
+
 
 const app = express();
 
